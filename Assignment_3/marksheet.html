@@ -67,12 +67,6 @@
             gap: 15px;
         }
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 15px;
-        }
-
         .section-title {
             font-size: 16px;
             font-weight: 600;
@@ -139,6 +133,12 @@
             color: #2c3e50;
         }
 
+        /* Conditional colors for sub-40 scores */
+        .fail-mark {
+            color: #c0392b;
+            font-weight: bold;
+        }
+
         .summary-box {
             display: flex;
             justify-content: space-around;
@@ -147,6 +147,7 @@
             border-radius: 6px;
             margin-top: 15px;
             font-weight: 600;
+            transition: background 0.3s;
         }
 
         .summary-item {
@@ -158,6 +159,14 @@
             font-size: 18px;
             color: #2c3e50;
             margin-top: 5px;
+        }
+        
+        .status-pass {
+            color: #27ae60 !important;
+        }
+        
+        .status-fail {
+            color: #c0392b !important;
         }
     </style>
 </head>
@@ -231,9 +240,9 @@
             </tbody>
         </table>
 
-        <div class="summary-box">
+        <div class="summary-box" id="summaryBox">
             <div class="summary-item">Total Marks<span id="resTotal"></span></div>
-            <div class="summary-item">Percentage<span id="resPercentage"></span></div>
+            <div class="summary-item">Percentage / Result<span id="resPercentage"></span></div>
             <div class="summary-item">CGPA<span id="resCGPA"></span></div>
         </div>
     </div>
@@ -257,26 +266,54 @@
         const m3 = parseFloat(document.getElementById('sub3').value) || 0;
         const m4 = parseFloat(document.getElementById('sub4').value) || 0;
 
+        // Check if student failed any subject (less than 40)
+        const hasFailed = (m1 < 40 || m2 < 40 || m3 < 40 || m4 < 40);
+
         // Calculations
         const totalMarks = m1 + m2 + m3 + m4;
         const maxTotal = 400;
         const percentage = (totalMarks / maxTotal) * 100;
         
-        // Standard CGPA calculation (Percentage / 9.5)
-        const cgpa = percentage / 9.5;
+        // Standard CGPA calculation (Percentage / 9.5). Set to 0 if they failed.
+        const cgpa = hasFailed ? 0 : (percentage / 9.5);
 
         // Display Data in Marksheet
         document.getElementById('resName').textContent = name;
         document.getElementById('resRoll').textContent = roll;
         
-        document.getElementById('m1').textContent = m1;
-        document.getElementById('m2').textContent = m2;
-        document.getElementById('m3').textContent = m3;
-        document.getElementById('m4').textContent = m4;
+        // Populate marks and highlight individual failed subjects in red
+        const subjects = [
+            { elementId: 'm1', value: m1 },
+            { elementId: 'm2', value: m2 },
+            { elementId: 'm3', value: m3 },
+            { elementId: 'm4', value: m4 }
+        ];
+
+        subjects.forEach(sub => {
+            const el = document.getElementById(sub.elementId);
+            el.textContent = sub.value;
+            if (sub.value < 40) {
+                el.className = 'fail-mark';
+            } else {
+                el.className = '';
+            }
+        });
 
         document.getElementById('resTotal').textContent = `${totalMarks} / ${maxTotal}`;
-        document.getElementById('resPercentage').textContent = `${percentage.toFixed(2)}%`;
-        document.getElementById('resCGPA').textContent = `${Math.min(cgpa, 10).toFixed(2)}`;
+        
+        // Update summary container styling based on performance status
+        const summaryBox = document.getElementById('summaryBox');
+        const percentageSpan = document.getElementById('resPercentage');
+        
+        if (hasFailed) {
+            percentageSpan.innerHTML = `${percentage.toFixed(2)}% <span class="status-fail" style="display:inline;">(FAIL)</span>`;
+            document.getElementById('resCGPA').textContent = "0.00";
+            summaryBox.style.background = '#fdedec'; // Light red background
+        } else {
+            percentageSpan.innerHTML = `${percentage.toFixed(2)}% <span class="status-pass" style="display:inline;">(PASS)</span>`;
+            document.getElementById('resCGPA').textContent = `${Math.min(cgpa, 10).toFixed(2)}`;
+            summaryBox.style.background = '#eafaf1'; // Light green background
+        }
 
         // Show Marksheet Container & Scroll to View
         const marksheetContainer = document.getElementById('marksheetContainer');
