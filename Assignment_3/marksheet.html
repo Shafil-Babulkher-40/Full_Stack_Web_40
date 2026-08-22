@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marksheet Generator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 750px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 20px 0 10px;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 5px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Marksheet Styling */
+        #marksheetContainer {
+            display: none;
+            margin-top: 30px;
+            border: 2px solid #2c3e50;
+            padding: 25px;
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        .marksheet-header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #bbb;
+            padding-bottom: 15px;
+        }
+
+        .student-info-table, .marks-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .student-info-table td {
+            padding: 6px 0;
+            font-size: 15px;
+        }
+
+        .marks-table th, .marks-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .marks-table th {
+            background-color: #f8f9fa;
+            color: #2c3e50;
+        }
+
+        .summary-box {
+            display: flex;
+            justify-content: space-around;
+            background: #eef7fc;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .summary-item {
+            text-align: center;
+        }
+
+        .summary-item span {
+            display: block;
+            font-size: 18px;
+            color: #2c3e50;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Student Marksheet Generator</h2>
+    
+    <form id="marksForm">
+        <div class="section-title">Student Information</div>
+        <div class="grid-2">
+            <div class="form-group">
+                <label for="studentName">Full Name</label>
+                <input type="text" id="studentName" placeholder="e.g. John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="rollNo">Roll Number / ID</label>
+                <input type="text" id="rollNo" placeholder="e.g. 101" required>
+            </div>
+        </div>
+
+        <div class="section-title">Subject Marks (Max: 100)</div>
+        <div class="grid-2">
+            <div class="form-group">
+                <label for="sub1">Data Structure</label>
+                <input type="number" id="sub1" min="0" max="100" placeholder="0 - 100" required>
+            </div>
+            <div class="form-group">
+                <label for="sub2">OOP using Java</label>
+                <input type="number" id="sub2" min="0" max="100" placeholder="0 - 100" required>
+            </div>
+            <div class="form-group">
+                <label for="sub3">Full Stack Web</label>
+                <input type="number" id="sub3" min="0" max="100" placeholder="0 - 100" required>
+            </div>
+            <div class="form-group">
+                <label for="sub4">Advance RDBMS</label>
+                <input type="number" id="sub4" min="0" max="100" placeholder="0 - 100" required>
+            </div>
+        </div>
+
+        <button type="button" onclick="generateMarksheet()">Generate Marksheet</button>
+    </form>
+
+    <div id="marksheetContainer">
+        <div class="marksheet-header">
+            <h1>Academic Progress Report</h1>
+            <p>Official Student Marksheet</p>
+        </div>
+
+        <table class="student-info-table">
+            <tr>
+                <td><strong>Student Name:</strong> <span id="resName"></span></td>
+                <td style="text-align: right;"><strong>Roll No:</strong> <span id="resRoll"></span></td>
+            </tr>
+        </table>
+
+        <table class="marks-table">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Max Marks</th>
+                    <th>Marks Obtained</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Data Structure</td><td>100</td><td id="m1"></td></tr>
+                <tr><td>OOP using Java</td><td>100</td><td id="m2"></td></tr>
+                <tr><td>Full Stack Web</td><td>100</td><td id="m3"></td></tr>
+                <tr><td>Advance RDBMS</td><td>100</td><td id="m4"></td></tr>
+            </tbody>
+        </table>
+
+        <div class="summary-box">
+            <div class="summary-item">Total Marks<span id="resTotal"></span></div>
+            <div class="summary-item">Percentage<span id="resPercentage"></span></div>
+            <div class="summary-item">CGPA<span id="resCGPA"></span></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function generateMarksheet() {
+        // Form Validation
+        const form = document.getElementById('marksForm');
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        // Fetch Input Values
+        const name = document.getElementById('studentName').value;
+        const roll = document.getElementById('rollNo').value;
+        
+        const m1 = parseFloat(document.getElementById('sub1').value) || 0;
+        const m2 = parseFloat(document.getElementById('sub2').value) || 0;
+        const m3 = parseFloat(document.getElementById('sub3').value) || 0;
+        const m4 = parseFloat(document.getElementById('sub4').value) || 0;
+
+        // Calculations
+        const totalMarks = m1 + m2 + m3 + m4;
+        const maxTotal = 400;
+        const percentage = (totalMarks / maxTotal) * 100;
+        
+        // Standard CGPA calculation (Percentage / 9.5)
+        const cgpa = percentage / 9.5;
+
+        // Display Data in Marksheet
+        document.getElementById('resName').textContent = name;
+        document.getElementById('resRoll').textContent = roll;
+        
+        document.getElementById('m1').textContent = m1;
+        document.getElementById('m2').textContent = m2;
+        document.getElementById('m3').textContent = m3;
+        document.getElementById('m4').textContent = m4;
+
+        document.getElementById('resTotal').textContent = `${totalMarks} / ${maxTotal}`;
+        document.getElementById('resPercentage').textContent = `${percentage.toFixed(2)}%`;
+        document.getElementById('resCGPA').textContent = `${Math.min(cgpa, 10).toFixed(2)}`;
+
+        // Show Marksheet Container & Scroll to View
+        const marksheetContainer = document.getElementById('marksheetContainer');
+        marksheetContainer.style.display = 'block';
+        marksheetContainer.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
