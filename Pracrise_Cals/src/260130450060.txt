@@ -1,0 +1,12 @@
+<!DOctypce html                                                                      
+  <html>
+       <hend>
+        <tital> my self h1/>
+              my name tejal.
+              my fathre name shaileshbhai.
+              my mother name saloniben.
+              my brothr name vishalbhal.
+              I heve  b.c.a studant.
+   </html>                         
+   </hend>
+   </tital>
