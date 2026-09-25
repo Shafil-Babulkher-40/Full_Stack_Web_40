@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="app-container">
       <header>
-        <h1>My React App</h1>
+        <h1>My React App</h1><br></br>
         <p>Welcome! Try out the calculator component below.</p>
       </header>
       

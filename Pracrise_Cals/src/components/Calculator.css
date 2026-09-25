@@ -1,70 +1,80 @@
-.calculator-card {
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  text-align: center;
-  font-family: Arial, sans-serif;
-}
-
-.calculator-card h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.input-group input {
+.calculator-card
+{
+  height: fit-content;
+  width: fit-content;
+  margin: auto;
   padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  outline: none;
 }
 
-.input-group input:focus {
-  border-color: #007bff;
+.calculator-card h2
+{
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  margin: auto;
+  padding: 10px;
 }
 
-.button-group {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
+.input-group
+{
+  padding: 10px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: auto;
+}
+
+.input-group input
+{
+  font-size: large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  border: none;
+  background-color: #1C1A17 ;
+  color: #FFF8EB ;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  width: 175px;
+  height: 20px;
+}
+
+.input-group input:hover 
+{
+  transform: scale(1.1);
 }
 
 .btn {
-  padding: 10px 15px;
-  font-size: 14px;
-  font-weight: bold;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
-  color: white;
-  transition: opacity 0.2s;
-}
-
-.btn.add {
+  transition: background-color 0.2s;
   background-color: #28a745;
-}
-
-.btn.subtract {
-  background-color: #dc3545;
+  color: white;
+  width: 200px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .btn:hover {
-  opacity: 0.85;
+  background-color: #218838;
+  transform: scale(1.1);
 }
 
-.result-box {
-  margin-top: 20px;
+#result
+{
+  visibility: hidden;
   padding: 10px;
-  background-color: #f1f3f5;
-  border-radius: 6px;
-  color: #333;
+  margin: auto;
+  height: fit-content;
+  width: fit-content;
+  margin-top: 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: text;
+  transition: background-color 0.2s;
+  background-color: #28a745;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }

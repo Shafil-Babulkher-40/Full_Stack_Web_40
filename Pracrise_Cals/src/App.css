@@ -1,23 +1,36 @@
-.app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #f7f9fa;
-  font-family: Arial, sans-serif;
-}
-
-header {
+.app-container 
+{
+  margin: auto;
+  padding: 10px;
+  border-style: solid;
+  background-color: antiquewhite;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 25px;
+  font-weight: bold;
   text-align: center;
-  margin-bottom: 20px;
 }
 
-header h1 {
-  color: #222;
-  margin-bottom: 5px;
+header 
+{
+  margin: auto;
+  padding: 10px;
+}
+
+header h1 
+{
+  color: black;
+  margin: auto;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bolder;
 }
 
 header p {
-  color: #666;
+  margin: auto;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  border: 0px;
+  border-bottom: 3px;
+  border-style: dashed;
+  padding: 10px;
 }
