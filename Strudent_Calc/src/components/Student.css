@@ -1,0 +1,173 @@
+/* Container Layout */
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.container h2 {
+  text-align: center;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+/* Form Styles */
+#marksForm {
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin: 1.2rem 0 0.8rem 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.section-title:first-child {
+  margin-top: 0;
+}
+
+/* Grid System */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+.form-group input {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Submit Button */
+button[type='submit'] {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type='submit']:hover {
+  background-color: #1d4ed8;
+}
+
+/* Marksheet Output Container */
+#marksheetContainer {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background-color: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.marksheet-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px dashed #cbd5e1;
+}
+
+.marksheet-header h1 {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin: 0;
+}
+
+.marksheet-header p {
+  margin: 0.2rem 0 0 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.student-info-table td {
+  padding: 0.6rem 0;
+  font-size: 1rem;
+}
+
+.marks-table th,
+.marks-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border: 1px solid #e2e8f0;
+}
+
+.marks-table th {
+  background-color: #f1f5f9;
+  color: #334155;
+  font-weight: 600;
+}
+
+.marks-table tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* Summary Box */
+.summary-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+}
+
+.summary-item {
+  font-weight: 600;
+  color: #1e40af;
+  font-size: 0.95rem;
+}
+
+.summary-item span {
+  display: inline-block;
+  margin-left: 0.4rem;
+  color: #0f172a;
+}

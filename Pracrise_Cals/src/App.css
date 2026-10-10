@@ -1,6 +1,7 @@
 .app-container 
 {
   margin: auto;
+  margin-top: 100px;
   padding: 10px;
   border-style: solid;
   background-color: antiquewhite;
@@ -8,7 +9,6 @@
   width: fit-content;
   border-radius: 25px;
   font-weight: bold;
-  text-align: center;
 }
 
 header 

@@ -1,0 +1,10 @@
+.counter 
+{
+    margin: auto;
+    padding: 10px;
+    background-color: antiquewhite;
+    border: 2px;
+    border-style: solid;
+    border-radius: 10px;
+    font-weight: bold;
+}

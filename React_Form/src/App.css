@@ -1,0 +1,56 @@
+.container
+{
+  border: 2px;
+  border-style: solid;
+  border-radius: 15px;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  padding: 10px;
+  background-color: antiquewhite;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.div_hadding h1
+{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: 0px;
+  border-bottom: 2px;
+  border-style: dashed;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.div_form form
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 10px;
+}
+
+.div_form_labels
+{
+  align-items: start;
+  margin: 10px;
+}
+
+.div_form_labels label
+{
+  margin: 500px;
+
+}
+
+.div_form_input input
+{
+  border: 0px;
+  background-color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 200px;
+  height: 25px;
+  margin: 10px;
+  color: white;
+}
+
+
+.div_form_button{}

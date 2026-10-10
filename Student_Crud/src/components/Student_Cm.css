@@ -1,0 +1,33 @@
+.std_form
+{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 10px;
+    margin: 10px;
+    border: 0px;
+    border-top: 2px;
+    border-bottom: 2px;
+    border-style: dashed;
+    text-align: start;
+    display: flexbox;
+    justify-content: space-between;
+}
+
+.std_form input
+{
+    margin: 10px;
+    margin-left: 10px;
+    border: 0px;
+    background-color: rgb(192, 153, 26);
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    height: 20px;
+    width: 200px;
+    align-items: end;
+}
+
+.std_form input::placeholder
+{
+    color: black;
+    opacity: 1;
+}
