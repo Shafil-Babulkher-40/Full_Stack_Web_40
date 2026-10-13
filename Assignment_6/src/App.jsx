@@ -35,7 +35,7 @@ const App = () => {
   }
 
   return (
-      <div className='container'>
+      <div className='container-main'>
 
         <div className='div_hadding'>
           <h1>User Login Page</h1>
@@ -45,20 +45,23 @@ const App = () => {
 
           <form onSubmit={handleSubmit}>
 
-            <div className='div_form_labels'>
-              <label>Enter User Name :- </label><br></br>
-              <label>Enter Password :- </label>
-            </div>
+            <div className='form-grid'>
+              <div className='div_form_labels'>
+                <label>Enter User Name :- </label><br></br>
+                <label>Enter Password :- </label>
+              </div>
 
-            <div className='div_form_input'>
-              <input type='text' value={name} onChange={saveName}/><br></br>
-              <input type='password' value={pass} onChange={savePassword}/>
+              <div className='div_form_input'>
+                <input type='text' value={name} onChange={saveName}/><br></br>
+                <input type='password' value={pass} onChange={savePassword}/>
+              </div>
+
             </div>
 
             <div className='div_form_button'>
               <input type='submit' />
             </div>
-
+          
           </form>
         </div>
       </div>  

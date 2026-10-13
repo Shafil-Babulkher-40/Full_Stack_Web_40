@@ -1,0 +1,89 @@
+.container-main
+{
+    background-color: antiquewhite;
+    margin: auto;
+    width: fit-content;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 20px;
+}
+
+.div_hadding
+{
+    border: 0px;
+    border-bottom: 2px;
+    border-style: dashed;
+    margin: 10px;
+    text-align: center;
+}
+
+.form-grid
+{
+  display: flex;
+  flex-direction: row; 
+  gap: 8px;            
+  align-items: center; 
+}
+
+.div_form_labels
+{
+    font-size: 20px;
+    font-style: oblique;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.div_form_input
+{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.div_form_input input
+{
+    border-radius: 5px;
+    border: 0;
+    background-color: #b04b26;
+    height: 30px;
+    font-size: 20px;
+    font-style: oblique;
+    color: white;
+    width: 200px;
+}
+
+.div_form_button
+{
+    margin: auto;
+    width: fit-content;
+    height: 50px;
+    align-content: center;
+}
+
+.div_form_button input 
+{
+    background-color: #c85a32;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(200, 90, 50, 0.2);
+    transition: all 0.25s ease;
+}
+
+.div_form_button input:hover 
+{
+    background-color: #b04b26;
+    box-shadow: 0 5px 15px rgba(200, 90, 50, 0.35);
+    transform: translateY(-1px);
+}
+
+.div_form_button input:active 
+{
+  transform: translateY(0);
+}

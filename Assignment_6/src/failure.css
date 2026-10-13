@@ -1,0 +1,15 @@
+.container-fail
+{
+    background-color: antiquewhite;
+    width: fit-content;
+    margin: auto;
+    padding: 20px;
+    color: red;
+    border-radius: 20px;
+}
+
+.container h2
+{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
