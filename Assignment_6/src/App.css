@@ -15,6 +15,7 @@
     border-style: dashed;
     margin: 10px;
     text-align: center;
+    border-color: #b04b26;
 }
 
 .form-grid
@@ -35,6 +36,11 @@
     font-weight: bold;
 }
 
+.div_form_labels label
+{    
+    height: 30px;
+}
+
 .div_form_input
 {
     margin: 10px;
@@ -46,7 +52,7 @@
 {
     border-radius: 5px;
     border: 0;
-    background-color: #b04b26;
+    background-color: #c85a32;
     height: 30px;
     font-size: 20px;
     font-style: oblique;

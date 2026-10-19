@@ -8,7 +8,7 @@ const App = () => {
 
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
-    const navigate = useNavigate() ;
+  const navigate = useNavigate() ;
   
   function saveName(e) 
   {
